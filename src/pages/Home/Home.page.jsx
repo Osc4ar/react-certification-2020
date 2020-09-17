@@ -7,12 +7,18 @@ import './Home.styles.css';
 function HomePage() {
   const history = useHistory();
   const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  const { login, authenticated, logout } = useAuth();
 
   function deAuthenticate(event) {
     event.preventDefault();
     logout();
     history.push('/');
+  }
+
+  function authenticate(event) {
+    event.preventDefault();
+    login();
+    history.push('/favorites');
   }
 
   return (
@@ -29,7 +35,9 @@ function HomePage() {
           </span>
         </>
       ) : (
-        <p>Login →</p>
+        <button type="button" onClick={authenticate}>
+          Login →
+        </button>
       )}
     </section>
   );
