@@ -22,20 +22,32 @@ function Nav() {
 
   return (
     <div className="topnav">
+      <Link to="/">
+        home
+        <span role="img" aria-label="home">
+          🏠
+        </span>
+      </Link>
       {authenticated ? (
         <>
-          <Link to="/favorites">Favorites →</Link>
-          <span role="separator" />
+          <Link to="/favorites">
+            favorites
+            <span role="img" aria-label="favorites">
+              ❤️
+            </span>
+          </Link>
           <span>
             <Link to="/" onClick={deAuthenticate}>
-              ← logout
+              logout ←
             </Link>
           </span>
         </>
       ) : (
-        <button type="button" onClick={authenticate}>
-          Login →
-        </button>
+        <>
+          <button type="button" onClick={authenticate}>
+            login →
+          </button>
+        </>
       )}
     </div>
   );

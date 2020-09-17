@@ -1,0 +1,18 @@
+.topnav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.topnav > * {
+  margin: 20px;
+}
+
+button {
+  background: #000;
+  color: white;
+  border: 0px;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
