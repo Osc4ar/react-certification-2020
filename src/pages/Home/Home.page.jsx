@@ -8,7 +8,6 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <Nav />
       <h1>Welcome to homepage!</h1>
     </section>
   );

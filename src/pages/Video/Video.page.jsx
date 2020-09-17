@@ -6,7 +6,6 @@ import './Video.styles.css';
 function VideoPage() {
   return (
     <section className="videopage">
-      <Nav />
       <h1>Welcome to your video!</h1>
     </section>
   );

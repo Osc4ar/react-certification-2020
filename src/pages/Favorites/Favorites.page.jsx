@@ -6,7 +6,6 @@ import './Favorites.styles.css';
 function FavoritesPage() {
   return (
     <section className="favoritespage">
-      <Nav />
       <h1>Welcome to your favorites!</h1>
     </section>
   );
