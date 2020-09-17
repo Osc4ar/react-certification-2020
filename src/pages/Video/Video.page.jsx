@@ -1,12 +1,11 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import './Video.styles.css';
 
-function HomePage() {
+function VideoPage() {
   const history = useHistory();
-  const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
 
   function deAuthenticate(event) {
@@ -16,11 +15,11 @@ function HomePage() {
   }
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Welcome to homepage!</h1>
+    <section className="videopage">
+      <h1>Welcome to your video!</h1>
       {authenticated ? (
         <>
-          <Link to="/favorites">Favorites →</Link>
+          <Link to="/video">Here is your video →</Link>
           <span role="separator" />
           <span>
             <Link to="/" onClick={deAuthenticate}>
@@ -35,4 +34,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default VideoPage;

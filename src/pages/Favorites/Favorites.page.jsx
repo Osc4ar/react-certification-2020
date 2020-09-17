@@ -1,12 +1,11 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import './Favorites.styles.css';
 
-function HomePage() {
+function FavoritesPage() {
   const history = useHistory();
-  const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
 
   function deAuthenticate(event) {
@@ -16,11 +15,11 @@ function HomePage() {
   }
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Welcome to homepage!</h1>
+    <section className="favoritespage">
+      <h1>Welcome to your favorites!</h1>
       {authenticated ? (
         <>
-          <Link to="/favorites">Favorites →</Link>
+          <Link to="/favorites">Here is the list of your favorites →</Link>
           <span role="separator" />
           <span>
             <Link to="/" onClick={deAuthenticate}>
@@ -35,4 +34,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default FavoritesPage;
