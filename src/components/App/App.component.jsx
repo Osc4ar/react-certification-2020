@@ -8,11 +8,13 @@ import VideoPage from '../../pages/Video';
 import NotFound from '../../pages/NotFound';
 import Private from '../Private';
 import Layout from '../Layout';
+import Nav from '../Nav';
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <Nav />
         <Layout>
           <Switch>
             <Route exact path="/">
