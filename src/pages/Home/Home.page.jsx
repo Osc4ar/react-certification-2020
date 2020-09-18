@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import VideoList from '../../components/VideoList';
 
 import './Home.styles.css';
 
@@ -8,6 +9,7 @@ function HomePage() {
   return (
     <section className="homepage" ref={sectionRef}>
       <h1>Welcome to homepage!</h1>
+      <VideoList />
     </section>
   );
 }
