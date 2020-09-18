@@ -36,11 +36,9 @@ function Nav() {
               ❤️
             </span>
           </Link>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              logout ←
-            </Link>
-          </span>
+          <Link to="/" onClick={deAuthenticate}>
+            logout ←
+          </Link>
         </>
       ) : (
         <>
