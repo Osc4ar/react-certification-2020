@@ -3,6 +3,11 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+
+  /* shadow */
+  -webkit-box-shadow: 0px 5px 10px 0px rgba(128,216,247,0.3);
+  -moz-box-shadow: 0px 5px 10px 0px rgba(128,216,247,0.3);
+  box-shadow: 0px 5px 10px 0px rgba(128,216,247,0.3);
 }
 
 .topnav > * {
@@ -15,4 +20,9 @@ button {
   border: 0px;
   font-size: 1.125rem;
   font-weight: bold;
+}
+
+.topnav > *:hover {
+  color: #80D8F7;
+  font-size: 1.12501rem;
 }
