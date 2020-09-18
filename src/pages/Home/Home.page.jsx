@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import Nav from '../../components/Nav';
 
 import './Home.styles.css';
 
