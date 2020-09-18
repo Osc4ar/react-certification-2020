@@ -1,0 +1,8 @@
+.video-card {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  background: #101010;
+  margin: 10px;
+  padding: 5px;
+}
