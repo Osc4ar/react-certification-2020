@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useGAPI from './useGAPI';
 
-const API_KEY = 'AIzaSyD-LNjx3t5Yfr_qGcqY0KQE4hHGvWC71W0';
+const API_KEY = '';
 const API_URL = 'https://apis.google.com/js/client.js';
 
 export default function useYoutube() {
