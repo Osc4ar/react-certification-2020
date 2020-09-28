@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const API_URL = 'https://apis.google.com/js/client.js';
-const API_KEY = 'AIzaSyD-LNjx3t5Yfr_qGcqY0KQE4hHGvWC71W0';
+const API_KEY = '';
 
 export default function useGAPI() {
   const [gapi, setGAPI] = useState(null);
