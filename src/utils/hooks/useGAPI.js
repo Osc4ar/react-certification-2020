@@ -1,18 +1,15 @@
 import { useEffect, useState } from 'react';
 
-const API_URL = 'https://apis.google.com/js/client.js';
-const API_KEY = '';
-
 export default function useGAPI() {
   const [gapi, setGAPI] = useState(null);
 
   useEffect(() => {
     const script = document.createElement('script');
 
-    script.src = API_URL;
+    script.src = process.env.REACT_APP_YOUTUBE_API_URL;
     script.onload = () => {
       window.gapi.load('client', () => {
-        window.gapi.client.setApiKey(API_KEY);
+        window.gapi.client.setApiKey(process.env.REACT_APP_YOUTUBE_API_KEY);
         window.gapi.client.load('youtube', 'v3', () => {
           setGAPI(window.gapi);
         });
