@@ -7,6 +7,7 @@ import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
 import FavoritesPage from '../../pages/Favorites';
 import VideoPage from '../../pages/Video';
+import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import Private from '../Private';
 import Layout from '../Layout';
@@ -33,6 +34,9 @@ function App() {
               <Switch>
                 <Route exact path="/">
                   <HomePage />
+                </Route>
+                <Route exact path="/login">
+                  <LoginPage />
                 </Route>
                 <Private exact path="/favorites">
                   <FavoritesPage />

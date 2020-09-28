@@ -7,17 +7,12 @@ import './Nav.styles.css';
 
 function Nav() {
   const history = useHistory();
-  const { login, authenticated, logout } = useAuth();
+  const { authenticated, logout } = useAuth();
 
   function deAuthenticate(event) {
     event.preventDefault();
     logout();
     history.push('/');
-  }
-
-  function authenticate(event) {
-    event.preventDefault();
-    login();
   }
 
   return (
@@ -42,9 +37,7 @@ function Nav() {
         </>
       ) : (
         <>
-          <button type="button" onClick={authenticate}>
-            login →
-          </button>
+          <Link to="/login">login →</Link>
         </>
       )}
     </div>
