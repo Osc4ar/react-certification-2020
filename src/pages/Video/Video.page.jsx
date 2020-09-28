@@ -1,12 +1,37 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import VideosContext from '../../utils/state/VideosContext';
+import useGAPI from '../../utils/hooks/useGAPI';
+import { formatVideosList } from '../../utils/youtube';
+import VideoList from '../../components/VideoList';
+
 import './Video.styles.css';
 
 function VideoPage() {
   const { videoId } = useParams();
-  const { currentVideo } = useContext(VideosContext);
+  const { setVideos, currentVideo } = useContext(VideosContext);
+  const gapi = useGAPI();
+
+  useEffect(() => {
+    if (gapi !== null) {
+      gapi.client.youtube.search
+        .list({
+          relatedToVideoId: videoId,
+          part: ['snippet'],
+          maxResults: 5,
+          type: ['video'],
+        })
+        .then(
+          function (response) {
+            setVideos(formatVideosList(response.result.items));
+          },
+          function (err) {
+            console.error('Execute error', err);
+          }
+        );
+    }
+  }, [gapi, videoId, setVideos]);
 
   return (
     <section className="videopage">
@@ -21,6 +46,7 @@ function VideoPage() {
         height="720"
       />
       <p>{currentVideo.videoDescription}</p>
+      <VideoList />
     </section>
   );
 }
