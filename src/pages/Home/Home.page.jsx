@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
+
+import VideosContext from '../../utils/state/VideosContext';
 import useGAPI from '../../utils/hooks/useGAPI';
 import { formatVideosList } from '../../utils/youtube';
 import VideoList from '../../components/VideoList';
@@ -8,7 +10,7 @@ import './Home.styles.css';
 function HomePage() {
   const sectionRef = useRef(null);
   const [keyword, setKeyword] = useState('react');
-  const [videos, setVideos] = useState([]);
+  const { setVideos } = useContext(VideosContext);
   const gapi = useGAPI();
 
   const searchByKeyword = (maxResults = 10) => {
@@ -40,7 +42,7 @@ function HomePage() {
       <button type="button" onClick={() => searchByKeyword(5)}>
         Search
       </button>
-      <VideoList videos={videos} />
+      <VideoList />
     </section>
   );
 }
