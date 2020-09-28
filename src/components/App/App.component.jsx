@@ -23,7 +23,7 @@ function App() {
             <Private exact path="/favorites">
               <FavoritesPage />
             </Private>
-            <Route exact path="/video">
+            <Route exact path="/video/:videoId">
               <VideoPage />
             </Route>
             <Route path="*">

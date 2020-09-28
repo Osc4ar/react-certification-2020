@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './VideoCard.styles.css';
 
-function VideoCard({ index, videoImg, videoTitle, videoDescription }) {
+function VideoCard({ videoId, videoImg, videoTitle }) {
   return (
-    <div className="video-card" key={index}>
-      <img src={videoImg} alt={videoTitle} />
-      <p>{videoTitle}</p>
-      <p>{videoDescription}</p>
-    </div>
+    <Link to={`/video/${videoId}`}>
+      <div className="video-card" key={videoId}>
+        <img src={videoImg} alt={videoTitle} />
+        <p>{videoTitle}</p>
+      </div>
+    </Link>
   );
 }
 
