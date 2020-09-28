@@ -5,6 +5,7 @@ import VideosContext from '../../utils/state/VideosContext';
 import useGAPI from '../../utils/hooks/useGAPI';
 import { formatVideosList } from '../../utils/youtube';
 import VideoList from '../../components/VideoList';
+import FavoriteButton from '../../components/FavoriteButton';
 
 import './Video.styles.css';
 
@@ -46,6 +47,7 @@ function VideoPage() {
         height="720"
       />
       <p>{currentVideo.videoDescription}</p>
+      <FavoriteButton videoId={videoId} />
       <VideoList />
     </section>
   );
