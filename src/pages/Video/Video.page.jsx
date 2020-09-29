@@ -6,6 +6,7 @@ import useGAPI from '../../utils/hooks/useGAPI';
 import { formatVideosList } from '../../utils/youtube';
 import VideoList from '../../components/VideoList';
 import FavoriteButton from '../../components/FavoriteButton';
+import videosPlaceholder from '../../utils/placeholder_videos';
 
 import './Video.styles.css';
 
@@ -29,44 +30,7 @@ function VideoPage() {
           },
           function (err) {
             console.error('Execute error', err);
-            setVideos([
-              {
-                videoId: 'ERROR',
-                videoTitle: 'Title',
-                videoDescription: 'Description',
-                videoImg: 'logo512.png',
-              },
-              {
-                videoId: 'ERROR',
-                videoTitle: 'Title',
-                videoDescription: 'Description',
-                videoImg: 'logo192.png',
-              },
-              {
-                videoId: 'ERROR',
-                videoTitle: 'Title',
-                videoDescription: 'Description',
-                videoImg: 'logo192.png',
-              },
-              {
-                videoId: 'ERROR',
-                videoTitle: 'Title',
-                videoDescription: 'Description',
-                videoImg: 'logo192.png',
-              },
-              {
-                videoId: 'ERROR',
-                videoTitle: 'Title',
-                videoDescription: 'Description',
-                videoImg: 'logo192.png',
-              },
-              {
-                videoId: 'ERROR',
-                videoTitle: 'Title',
-                videoDescription: 'Description',
-                videoImg: 'logo192.png',
-              },
-            ]);
+            setVideos(videosPlaceholder);
           }
         );
     }

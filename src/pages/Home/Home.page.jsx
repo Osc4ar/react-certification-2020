@@ -4,6 +4,7 @@ import VideosContext from '../../utils/state/VideosContext';
 import { formatVideosList } from '../../utils/youtube';
 import useGAPI from '../../utils/hooks/useGAPI';
 import VideoList from '../../components/VideoList';
+import videosPlaceholder from '../../utils/placeholder_videos';
 
 import './Home.styles.css';
 
@@ -27,6 +28,7 @@ function HomePage() {
           },
           function (err) {
             console.error('Execute error', err);
+            setVideos(videosPlaceholder);
           }
         );
     }

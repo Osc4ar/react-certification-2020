@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import VideosContext from '../../utils/state/VideosContext';
 import { formatVideosList } from '../../utils/youtube';
 import useGAPI from '../../utils/hooks/useGAPI';
+import videosPlaceholder from '../../utils/placeholder_videos';
 
 import './SearchVideo.styles.css';
 
@@ -28,6 +29,8 @@ function SearchVideo() {
         },
         function (err) {
           console.error('Execute error', err);
+          setVideos(videosPlaceholder);
+          history.push('/');
         }
       );
   };
