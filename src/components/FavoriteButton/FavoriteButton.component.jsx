@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import FavoritesContext from '../../utils/state/FavoritesContext';
+import { useAuth } from '../../providers/Auth';
 
 function FavoriteButton({ videoId }) {
   const { favorites, setFavorites } = useContext(FavoritesContext);
+  const { authenticated } = useAuth();
 
   const saveFavorites = () => {
     if (favorites.includes(videoId)) {
@@ -14,7 +16,12 @@ function FavoriteButton({ videoId }) {
   };
 
   return (
-    <button className="favorite-button" type="button" onClick={saveFavorites}>
+    <button
+      className="favorite-button"
+      type="button"
+      onClick={saveFavorites}
+      disabled={!authenticated}
+    >
       {favorites.includes(videoId) ? 'Delete from favorites' : 'Add to favorites'}
     </button>
   );
