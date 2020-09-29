@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 
+import { useHistory } from 'react-router';
 import VideosContext from '../../utils/state/VideosContext';
 import { formatVideosList } from '../../utils/youtube';
 import useGAPI from '../../utils/hooks/useGAPI';
@@ -7,6 +8,7 @@ import useGAPI from '../../utils/hooks/useGAPI';
 import './SearchVideo.styles.css';
 
 function SearchVideo() {
+  const history = useHistory();
   const { setVideos } = useContext(VideosContext);
   const [keyword, setKeyword] = useState('reactjs');
   const gapi = useGAPI();
@@ -22,6 +24,7 @@ function SearchVideo() {
       .then(
         function (response) {
           setVideos(formatVideosList(response.result.items));
+          history.push('/');
         },
         function (err) {
           console.error('Execute error', err);

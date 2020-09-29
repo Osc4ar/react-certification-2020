@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
 import { useAuth } from '../../providers/Auth';
 import './Login.styles.css';
 
 function LoginPage() {
-  const { login } = useAuth();
+  const { authenticated, login } = useAuth();
   const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('Welcome back!');
   const [messageClass, setMessageClass] = useState('info-message');
+
+  useEffect(() => {
+    if (authenticated) {
+      history.push('/favorites');
+    }
+  }, [history, authenticated]);
 
   function authenticate(event) {
     event.preventDefault();
