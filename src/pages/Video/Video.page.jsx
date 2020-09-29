@@ -20,7 +20,7 @@ function VideoPage() {
         .list({
           relatedToVideoId: videoId,
           part: ['snippet'],
-          maxResults: 5,
+          maxResults: 6,
           type: ['video'],
         })
         .then(
@@ -29,6 +29,44 @@ function VideoPage() {
           },
           function (err) {
             console.error('Execute error', err);
+            setVideos([
+              {
+                videoId: 'ERROR',
+                videoTitle: 'Title',
+                videoDescription: 'Description',
+                videoImg: 'logo512.png',
+              },
+              {
+                videoId: 'ERROR',
+                videoTitle: 'Title',
+                videoDescription: 'Description',
+                videoImg: 'logo192.png',
+              },
+              {
+                videoId: 'ERROR',
+                videoTitle: 'Title',
+                videoDescription: 'Description',
+                videoImg: 'logo192.png',
+              },
+              {
+                videoId: 'ERROR',
+                videoTitle: 'Title',
+                videoDescription: 'Description',
+                videoImg: 'logo192.png',
+              },
+              {
+                videoId: 'ERROR',
+                videoTitle: 'Title',
+                videoDescription: 'Description',
+                videoImg: 'logo192.png',
+              },
+              {
+                videoId: 'ERROR',
+                videoTitle: 'Title',
+                videoDescription: 'Description',
+                videoImg: 'logo192.png',
+              },
+            ]);
           }
         );
     }
@@ -36,7 +74,7 @@ function VideoPage() {
 
   return (
     <section className="videopage">
-      <h3>{currentVideo.videoTitle}</h3>
+      <h3>{currentVideo.videoTitle || 'API connection problem'}</h3>
       <iframe
         src={`https://www.youtube.com/embed/${videoId}`}
         frameBorder="0"
@@ -46,8 +84,11 @@ function VideoPage() {
         width="1280"
         height="720"
       />
-      <p>{currentVideo.videoDescription}</p>
       <FavoriteButton videoId={videoId} />
+      <p className="video-description">
+        {currentVideo.videoDescription ||
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'}
+      </p>
       <VideoList />
     </section>
   );
