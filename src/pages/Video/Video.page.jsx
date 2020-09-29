@@ -6,7 +6,7 @@ import useGAPI from '../../utils/hooks/useGAPI';
 import { formatVideosList } from '../../utils/youtube';
 import VideoList from '../../components/VideoList';
 import FavoriteButton from '../../components/FavoriteButton';
-import videosPlaceholder from '../../utils/placeholder_videos';
+import getPlaceholders from '../../utils/placeholder_videos';
 
 import './Video.styles.css';
 
@@ -30,7 +30,7 @@ function VideoPage() {
           },
           function (err) {
             console.error('Execute error', err);
-            setVideos(videosPlaceholder);
+            setVideos(getPlaceholders(6));
           }
         );
     }

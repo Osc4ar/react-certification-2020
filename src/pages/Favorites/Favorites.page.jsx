@@ -5,8 +5,9 @@ import FavoritesContext from '../../utils/state/FavoritesContext';
 import VideosContext from '../../utils/state/VideosContext';
 import useGAPI from '../../utils/hooks/useGAPI';
 import { formatVideosLoadedById } from '../../utils/youtube';
+import getPlaceholders from '../../utils/placeholder_videos';
+
 import './Favorites.styles.css';
-import videosPlaceholder from '../../utils/placeholder_videos';
 
 function FavoritesPage() {
   const { favorites } = useContext(FavoritesContext);
@@ -27,7 +28,7 @@ function FavoritesPage() {
           },
           function (err) {
             console.error('Execute error', err);
-            setVideos(videosPlaceholder);
+            setVideos(getPlaceholders());
           }
         );
     }
