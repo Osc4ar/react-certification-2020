@@ -9,7 +9,7 @@ function VideoList() {
   const { videos, setCurrentVideo } = useContext(VideosContext);
 
   return (
-    <div className="video-list">
+    <section className="video-list">
       {videos.map((video) =>
         VideoCard({
           videoId: video.videoId,
@@ -20,7 +20,7 @@ function VideoList() {
           },
         })
       )}
-    </div>
+    </section>
   );
 }
 

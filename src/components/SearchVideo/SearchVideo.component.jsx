@@ -8,7 +8,7 @@ import './SearchVideo.styles.css';
 
 function SearchVideo() {
   const { setVideos } = useContext(VideosContext);
-  const [keyword, setKeyword] = useState('react');
+  const [keyword, setKeyword] = useState('reactjs');
   const gapi = useGAPI();
 
   const searchByKeyword = (maxResults = 10) => {
@@ -31,7 +31,7 @@ function SearchVideo() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      searchByKeyword(5);
+      searchByKeyword(10);
     }
   };
 
