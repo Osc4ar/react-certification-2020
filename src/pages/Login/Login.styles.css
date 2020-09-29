@@ -1,5 +1,10 @@
 .login {
-  width: 300px;
+  width: 600px;
+  padding: 50px 100px;
+
+  -webkit-box-shadow: 20px 20px 20px 20px rgba(128, 216, 247, 0.3);
+  -moz-box-shadow: 20px 20px 20px 20px rgba(128, 216, 247, 0.3);
+  box-shadow: 0px 0px 50px 5px rgba(128, 216, 247, 0.3);
 }
 
 .login h1 {
@@ -28,13 +33,13 @@
 }
 
 .form-group input {
-  color: white;
+  color: black;
   font-size: 1.2rem;
   width: 100%;
   padding: 0.4rem 0.6rem;
   border-radius: 3px;
-  border: 1px solid white;
-  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid #80d8f7;
+  background-color: rgba(225, 225, 225, 0.9);
 }
 
 .login-form button[type='submit'] {
@@ -44,4 +49,17 @@
   font-size: 1.2rem;
   border: none;
   border-radius: 3px;
+}
+
+.login-form button[type='submit']:hover {
+  background-color: #80d8f7;
+  cursor: pointer;
+}
+
+.login h1.info-message {
+  color: rgb(225, 225, 225);
+}
+
+.login h1.error-message {
+  color: rgb(197, 59, 59);
 }

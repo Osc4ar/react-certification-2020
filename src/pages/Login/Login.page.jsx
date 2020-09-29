@@ -10,6 +10,7 @@ function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('Welcome back!');
+  const [messageClass, setMessageClass] = useState('info-message');
 
   function authenticate(event) {
     event.preventDefault();
@@ -21,12 +22,13 @@ function LoginPage() {
       history.push('/');
     } else {
       setMessage('Wrong credentials, try again');
+      setMessageClass('error-message');
     }
   }
 
   return (
     <section className="login">
-      <h1>{message}</h1>
+      <h1 className={messageClass}>{message}</h1>
       <form onSubmit={authenticate} className="login-form">
         <div className="form-group">
           <label htmlFor="username">
