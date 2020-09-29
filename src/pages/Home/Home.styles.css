@@ -1,5 +1,7 @@
 .homepage {
   text-align: center;
+  display: grid;
+  grid-template-rows: 150px 600px;
 }
 
 .homepage h1 {

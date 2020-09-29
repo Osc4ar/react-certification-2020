@@ -1,5 +1,8 @@
 .video-list {
-  display: flex;
+  position: relative;
+  display: inline-grid;
   flex-direction: row;
-  width: 100%;
+  padding: 3rem;
+  grid-gap: 20px 20px;
+  grid-template-columns: auto auto auto;
 }

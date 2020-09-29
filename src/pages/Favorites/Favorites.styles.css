@@ -1,5 +1,7 @@
 .favoritespage {
   text-align: center;
+  display: grid;
+  grid-template-rows: 150px 600px;
 }
 
 .favoritespage h1 {
