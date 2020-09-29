@@ -14,7 +14,7 @@ function FavoriteButton({ videoId }) {
   };
 
   return (
-    <button type="button" onClick={saveFavorites}>
+    <button className="favorite-button" type="button" onClick={saveFavorites}>
       {favorites.includes(videoId) ? 'Delete from favorites' : 'Add to favorites'}
     </button>
   );

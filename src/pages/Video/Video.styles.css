@@ -1,9 +1,30 @@
 .videopage {
   text-align: center;
-  margin: 300px 0px 0px 0px;
+  display: grid;
+  grid-template-rows: 70px 730px 50px 150px 600px;
+  justify-content: center;
+  margin-top: 800px;
 }
 
 .videopage h1 {
   font-size: 3rem;
   letter-spacing: -2px;
+}
+
+.video-description {
+  overflow: scroll;
+  width: 800px;
+  margin: auto;
+  height: 150px;
+}
+
+.favorite-button {
+  width: 400px;
+  background-color: #80d8f7;
+  border-radius: 5px;
+  border: 1px solid #80d8f7;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  margin: auto;
 }
