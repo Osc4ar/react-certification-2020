@@ -1,9 +1,24 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+
 import { Box, Flex, Heading, IconButton, Button } from '@chakra-ui/core';
+import styled from '@emotion/styled';
 
 import { useAuth } from '../../providers/Auth';
 import SearchVideo from '../SearchVideo/SearchVideo.component';
+
+const NavIconButton = styled(IconButton)`
+  &:hover {
+    color: #72cbc2;
+    background-color: #ffffff00;
+  }
+`;
+
+const NavButton = styled(Button)`
+  &:hover {
+    background-color: #72cbc2;
+  }
+`;
 
 function Nav() {
   const history = useHistory();
@@ -47,7 +62,7 @@ function Nav() {
       </Box>
       <Box display={{ md: 'flex' }} mt={{ base: 4, md: 0 }}>
         <Link to="/favorites">
-          <IconButton
+          <NavIconButton
             aria-label="Favorites"
             icon="star"
             mt={{ base: 4, md: 0 }}
@@ -56,14 +71,14 @@ function Nav() {
             bg="transparent"
           />
         </Link>
-        <Button
+        <NavButton
           bg="transparent"
           border="1px"
           w="6rem"
           onClick={authenticated ? deAuthenticate : authenticate}
         >
           {authenticated ? 'Log Out' : 'Log In'}
-        </Button>
+        </NavButton>
       </Box>
     </Flex>
   );
