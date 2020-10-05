@@ -36,7 +36,6 @@ function FavoritesPage() {
 
   return (
     <section className="favoritespage">
-      <h1>Welcome to your favorites!</h1>
       <VideoList />
     </section>
   );

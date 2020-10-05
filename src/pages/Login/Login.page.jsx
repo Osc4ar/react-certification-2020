@@ -1,8 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
+import {
+  Button,
+  Heading,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Icon,
+  Text,
+} from '@chakra-ui/core';
+import styled from '@emotion/styled';
 import { useAuth } from '../../providers/Auth';
 import './Login.styles.css';
+
+const FormSection = styled.section`
+  width: 600px;
+  padding: 50px 100px;
+
+  -webkit-box-shadow: 20px 20px 20px 20px rgba(128, 216, 247, 0.3);
+  -moz-box-shadow: 20px 20px 20px 20px rgba(128, 216, 247, 0.3);
+  box-shadow: 0px 0px 50px 5px rgba(128, 216, 247, 0.3);
+
+  text-align: center;
+`;
+
+const FormInput = styled(Input)`
+  background-color: #ffffff00;
+  color: #ffffff;
+`;
 
 function LoginPage() {
   const { authenticated, login } = useAuth();
@@ -10,7 +36,7 @@ function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('Welcome back!');
-  const [messageClass, setMessageClass] = useState('info-message');
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   useEffect(() => {
     if (authenticated) {
@@ -28,41 +54,47 @@ function LoginPage() {
       history.push('/');
     } else {
       setMessage('Wrong credentials, try again');
-      setMessageClass('error-message');
+      setShowErrorMessage(true);
     }
   }
 
   return (
-    <section className="login">
-      <h1 className={messageClass}>{message}</h1>
+    <FormSection>
+      <Heading color={showErrorMessage ? 'tomato' : 'white'}>{message}</Heading>
       <form onSubmit={authenticate} className="login-form">
-        <div className="form-group">
-          <label htmlFor="username">
-            <strong>username </strong>
-            <input
-              required
-              type="text"
-              id="username"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">
-            <strong>password </strong>
-            <input
-              required
-              type="password"
-              id="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-          </label>
-        </div>
-        <button type="submit">login</button>
+        <InputGroup margin="20px">
+          <FormInput
+            required
+            type="text"
+            id="username"
+            placeholder="Username"
+            color="white"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+          <InputRightElement>
+            <Icon name="moon" color="gray.300" />
+          </InputRightElement>
+        </InputGroup>
+        <InputGroup margin="20px">
+          <FormInput
+            required
+            type="password"
+            id="password"
+            value={password}
+            placeholder="Password"
+            color="white"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <InputRightElement>
+            <Icon name="lock" color="gray.300" />
+          </InputRightElement>
+        </InputGroup>
+        <Button type="submit" variantColor="teal">
+          login
+        </Button>
       </form>
-    </section>
+    </FormSection>
   );
 }
 

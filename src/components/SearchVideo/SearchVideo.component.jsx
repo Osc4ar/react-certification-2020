@@ -41,7 +41,7 @@ function SearchVideo() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      searchByKeyword(10);
+      searchByKeyword(15);
     }
   };
 

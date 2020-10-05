@@ -6,8 +6,6 @@ import useGAPI from '../../utils/hooks/useGAPI';
 import VideoList from '../../components/VideoList';
 import getPlaceholders from '../../utils/placeholder_videos';
 
-import './Home.styles.css';
-
 function HomePage() {
   const sectionRef = useRef(null);
   const { setVideos } = useContext(VideosContext);
@@ -18,7 +16,7 @@ function HomePage() {
       gapi.client.youtube.search
         .list({
           part: ['snippet'],
-          maxResults: 9,
+          maxResults: 15,
           q: 'reactjs',
           type: ['video'],
         })
@@ -28,7 +26,7 @@ function HomePage() {
           },
           function (err) {
             console.error('Execute error', err);
-            setVideos(getPlaceholders());
+            setVideos(getPlaceholders(15));
           }
         );
     }
@@ -36,7 +34,6 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Welcome to home!</h1>
       <VideoList />
     </section>
   );

@@ -25,6 +25,7 @@ function FavoriteButton({ videoId }) {
       variantColor={favorites.includes(videoId) ? 'red' : 'teal'}
       onClick={saveFavorites}
       disabled={!authenticated}
+      maxWidth="30px"
     />
   );
 }

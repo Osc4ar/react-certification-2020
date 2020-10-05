@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { ThemeProvider } from '@chakra-ui/core';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 
 import VideosContext from '../../utils/state/VideosContext';
 import FavoritesContext from '../../utils/state/FavoritesContext';
@@ -25,6 +25,7 @@ function App() {
 
   return (
     <ThemeProvider>
+      <CSSReset />
       <BrowserRouter>
         <AuthProvider>
           <VideosContext.Provider
