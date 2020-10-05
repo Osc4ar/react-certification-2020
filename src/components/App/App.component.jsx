@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from '@chakra-ui/core';
 
 import VideosContext from '../../utils/state/VideosContext';
 import FavoritesContext from '../../utils/state/FavoritesContext';
@@ -23,36 +24,38 @@ function App() {
   }, [setFavorites]);
 
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <VideosContext.Provider
-          value={{ videos, setVideos, currentVideo, setCurrentVideo }}
-        >
-          <FavoritesContext.Provider value={{ favorites, setFavorites }}>
-            <Nav />
-            <Layout>
-              <Switch>
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
-                <Route exact path="/login">
-                  <LoginPage />
-                </Route>
-                <Private exact path="/favorites">
-                  <FavoritesPage />
-                </Private>
-                <Route exact path="/video/:videoId">
-                  <VideoPage />
-                </Route>
-                <Route path="*">
-                  <NotFound />
-                </Route>
-              </Switch>
-            </Layout>
-          </FavoritesContext.Provider>
-        </VideosContext.Provider>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <VideosContext.Provider
+            value={{ videos, setVideos, currentVideo, setCurrentVideo }}
+          >
+            <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+              <Nav />
+              <Layout>
+                <Switch>
+                  <Route exact path="/">
+                    <HomePage />
+                  </Route>
+                  <Route exact path="/login">
+                    <LoginPage />
+                  </Route>
+                  <Private exact path="/favorites">
+                    <FavoritesPage />
+                  </Private>
+                  <Route exact path="/video/:videoId">
+                    <VideoPage />
+                  </Route>
+                  <Route path="*">
+                    <NotFound />
+                  </Route>
+                </Switch>
+              </Layout>
+            </FavoritesContext.Provider>
+          </VideosContext.Provider>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
