@@ -56,6 +56,7 @@ function Nav() {
       <Box
         display={{ md: 'block' }}
         width={{ md: 'auto' }}
+        maxWidth="600px"
         alignItems="center"
         flexGrow={1}
         mt={{ base: 4, md: 0 }}

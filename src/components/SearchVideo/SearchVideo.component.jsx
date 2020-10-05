@@ -1,12 +1,16 @@
 import React, { useState, useContext } from 'react';
 
 import { useHistory } from 'react-router';
+import { Input, InputGroup, InputRightElement, Icon } from '@chakra-ui/core';
+import styled from '@emotion/styled';
 import VideosContext from '../../utils/state/VideosContext';
 import { formatVideosList } from '../../utils/youtube';
 import useGAPI from '../../utils/hooks/useGAPI';
 import getPlaceholders from '../../utils/placeholder_videos';
 
-import './SearchVideo.styles.css';
+const NavInput = styled(Input)`
+  background-color: #ffffff00;
+`;
 
 function SearchVideo() {
   const history = useHistory();
@@ -42,12 +46,18 @@ function SearchVideo() {
   };
 
   return (
-    <input
-      type="text"
-      value={keyword}
-      onChange={(event) => setKeyword(event.target.value)}
-      onKeyDown={handleKeyDown}
-    />
+    <InputGroup>
+      <NavInput
+        type="text"
+        value={keyword}
+        onChange={(event) => setKeyword(event.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder="Type something to search"
+      />
+      <InputRightElement>
+        <Icon name="search" color="gray.300" />
+      </InputRightElement>
+    </InputGroup>
   );
 }
 
