@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { IconButton } from '@chakra-ui/core';
 import FavoritesContext from '../../utils/state/FavoritesContext';
 import { useAuth } from '../../providers/Auth';
 
@@ -16,14 +17,15 @@ function FavoriteButton({ videoId }) {
   };
 
   return (
-    <button
-      className="favorite-button"
-      type="button"
+    <IconButton
+      aria-label={
+        favorites.includes(videoId) ? 'Delete from favorites' : 'Add to favorites'
+      }
+      icon={favorites.includes(videoId) ? 'delete' : 'star'}
+      variantColor={favorites.includes(videoId) ? 'red' : 'teal'}
       onClick={saveFavorites}
       disabled={!authenticated}
-    >
-      {favorites.includes(videoId) ? 'Delete from favorites' : 'Add to favorites'}
-    </button>
+    />
   );
 }
 
