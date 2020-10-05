@@ -19,27 +19,7 @@ body {
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
-  background: #101010;
+  background: #1B202B;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.separator::before {
-  content: '•';
-  color: white;
-  padding: 0.4rem;
-}
-
-a {
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
-}
-
-a:active {
-  color: #80D8F7;
-}
-
-h1 {
-  color: white;
 }
