@@ -8,11 +8,9 @@ import {
   InputGroup,
   InputRightElement,
   Icon,
-  Text,
 } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import { useAuth } from '../../providers/Auth';
-import './Login.styles.css';
 
 const FormSection = styled.section`
   width: 600px;

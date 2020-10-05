@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Image } from '@chakra-ui/core';
-import styled from '@emotion/core';
-
-import './VideoCard.styles.css';
 
 function VideoCard({ videoId, videoImg, videoTitle, onVideoCardClick }) {
   return (

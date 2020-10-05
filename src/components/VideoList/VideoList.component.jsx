@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 
 import { SimpleGrid } from '@chakra-ui/core';
-import styled from '@emotion/styled';
 import VideosContext from '../../utils/state/VideosContext';
 import VideoCard from '../VideoCard';
 
