@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { Box, Flex, Heading, IconButton, Button } from '@chakra-ui/core';
+import { Box, Flex, Heading, IconButton, Button, Tooltip } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
 import { useAuth } from '../../providers/Auth';
@@ -46,9 +46,11 @@ function Nav() {
     >
       <Flex align="center" mr={5}>
         <Link to="/">
-          <Heading as="h1" size="lg" letterSpacing="-.1rem">
-            WizeTube
-          </Heading>
+          <Tooltip label="Go to home" placement="bottom">
+            <Heading as="h1" size="lg" letterSpacing="-.1rem">
+              WizeTube
+            </Heading>
+          </Tooltip>
         </Link>
       </Flex>
       <Box
@@ -62,14 +64,16 @@ function Nav() {
       </Box>
       <Box display={{ md: 'flex' }} mt={{ base: 4, md: 0 }}>
         <Link to="/favorites">
-          <NavIconButton
-            aria-label="Favorites"
-            icon="star"
-            mt={{ base: 4, md: 0 }}
-            mr={6}
-            display={authenticated ? 'block' : 'none'}
-            bg="transparent"
-          />
+          <Tooltip label="Go to favorites" placement="bottom">
+            <NavIconButton
+              aria-label="Favorites"
+              icon="star"
+              mt={{ base: 4, md: 0 }}
+              mr={6}
+              display={authenticated ? 'block' : 'none'}
+              bg="transparent"
+            />
+          </Tooltip>
         </Link>
         <NavButton
           bg="transparent"
