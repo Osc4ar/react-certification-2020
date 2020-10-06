@@ -36,7 +36,7 @@ function VideoPage() {
   }, [gapi, videoId, setVideos]);
 
   return (
-    <SimpleGrid as="section" spacingY="20px" marginTop="25rem">
+    <SimpleGrid as="section" spacingY="20px" marginTop="25rem" role="main">
       <Heading color="white">
         {currentVideo.videoTitle || 'API connection problem'}
       </Heading>
@@ -50,7 +50,9 @@ function VideoPage() {
         />
       </AspectRatioBox>
       <Flex align="center" justify="space-between" wrap="wrap" padding="1.5rem" bg="teal">
-        <Text color="white" maxW="1000">{currentVideo.videoDescription}</Text>
+        <Text color="white" maxW="1000">
+          {currentVideo.videoDescription}
+        </Text>
         <FavoriteButton videoId={videoId} />
       </Flex>
       <VideoList />

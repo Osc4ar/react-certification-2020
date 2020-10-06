@@ -6,8 +6,13 @@ import VideosContext from '../../utils/state/VideosContext';
 import useGAPI from '../../utils/hooks/useGAPI';
 import { formatVideosLoadedById } from '../../utils/youtube';
 import getPlaceholders from '../../utils/placeholder_videos';
+import styled from '@emotion/styled';
 
-import './Favorites.styles.css';
+const FavoritesSection = styled.section`
+  text-align: center;
+  display: grid;
+  grid-template-rows: 150px 600px;
+`;
 
 function FavoritesPage() {
   const { favorites } = useContext(FavoritesContext);
@@ -35,9 +40,9 @@ function FavoritesPage() {
   }, [gapi, favorites, setVideos]);
 
   return (
-    <section className="favoritespage">
+    <FavoritesSection role="main">
       <VideoList />
-    </section>
+    </FavoritesSection>
   );
 }
 

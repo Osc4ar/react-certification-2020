@@ -8,7 +8,7 @@ function VideoList() {
   const { videos, setCurrentVideo } = useContext(VideosContext);
 
   return (
-    <SimpleGrid columns={[1, null, 5]} spacing="40px">
+    <SimpleGrid columns={[1, null, 5]} spacing="40px" role="grid">
       {videos.map((video) =>
         VideoCard({
           videoId: video.videoId,
