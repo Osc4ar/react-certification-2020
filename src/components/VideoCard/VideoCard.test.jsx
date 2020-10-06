@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import VideoCard from './VideoCard.component';
 import getPlaceholders from '../../utils/placeholder_videos';
 
-describe('Nav', () => {
+describe('Video Card', () => {
   it('Renders Video Card', () => {
     const video = getPlaceholders(1)[0];
     render(

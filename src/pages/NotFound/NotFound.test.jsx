@@ -4,8 +4,8 @@ import { ThemeProvider } from '@chakra-ui/core';
 import { BrowserRouter } from 'react-router-dom';
 import NotFoundPage from './NotFound.page';
 
-describe('Nav', () => {
-  it('Renders Login Page', () => {
+describe('Not Found Page', () => {
+  it('Renders Not Found Page', () => {
     render(
       <ThemeProvider>
         <BrowserRouter>

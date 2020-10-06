@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from '@chakra-ui/core';
 import VideoList from './VideoList.component';
 
-describe('Nav', () => {
+describe('Video List', () => {
   it('Renders Video List', () => {
     render(
       <ThemeProvider>
