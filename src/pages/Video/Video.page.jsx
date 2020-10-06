@@ -29,14 +29,21 @@ function VideoPage() {
           },
           function (err) {
             console.error('Execute error', err);
-            setVideos(getPlaceholders(6));
+            setVideos(getPlaceholders(5));
           }
         );
     }
   }, [gapi, videoId, setVideos]);
 
   return (
-    <SimpleGrid as="section" spacingY="20px" marginTop="25rem" role="main">
+    <SimpleGrid
+      as="section"
+      spacingY="20px"
+      marginTop="25rem"
+      role="main"
+      maxH="1200px"
+      maxW="1500px"
+    >
       <Heading color="white">
         {currentVideo.videoTitle || 'API connection problem'}
       </Heading>
@@ -50,7 +57,7 @@ function VideoPage() {
         />
       </AspectRatioBox>
       <Flex align="center" justify="space-between" wrap="wrap" padding="1.5rem" bg="teal">
-        <Text color="white" maxW="1000">
+        <Text color="white" maxW="1000px" maxH="200px" overflow="scroll">
           {currentVideo.videoDescription}
         </Text>
         <FavoriteButton videoId={videoId} />
