@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 
+import styled from '@emotion/styled';
 import VideoList from '../../components/VideoList';
 import FavoritesContext from '../../utils/state/FavoritesContext';
 import VideosContext from '../../utils/state/VideosContext';
 import useGAPI from '../../utils/hooks/useGAPI';
 import { formatVideosLoadedById } from '../../utils/youtube';
 import getPlaceholders from '../../utils/placeholder_videos';
-import styled from '@emotion/styled';
 
 const FavoritesSection = styled.section`
   text-align: center;
