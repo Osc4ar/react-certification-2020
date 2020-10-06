@@ -45,11 +45,12 @@ function VideoPage() {
           as="iframe"
           title="video"
           src={`https://www.youtube.com/embed/${videoId}`}
+          maxW="1280px"
           allowFullScreen
         />
       </AspectRatioBox>
       <Flex align="center" justify="space-between" wrap="wrap" padding="1.5rem" bg="teal">
-        <Text color="white">{currentVideo.videoDescription}</Text>
+        <Text color="white" maxW="1000">{currentVideo.videoDescription}</Text>
         <FavoriteButton videoId={videoId} />
       </Flex>
       <VideoList />
